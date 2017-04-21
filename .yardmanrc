@@ -1,0 +1,22 @@
+#
+# Watch the lib folder and exec eslint only when files change.
+#
+lib/**
+--filename
+--no-start
+-x eslint
+#
+# Watch package.json and sort it when it is changed.
+#
+package.json
+--no-start
+-x $(npm\ bin)/sort-package-json
+#
+# run "npm run dev:exec" when any file in lib or spec folder change.
+#
+.eslintrc
+bin
+lib
+spec
+"npm run dev:exec --silent"
+

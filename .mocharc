@@ -1,0 +1,6 @@
+--check-leaks
+--recursive
+--reporter=list
+--require ./spec/setup
+--bail
+./spec/**/*.spec.js
