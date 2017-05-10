@@ -15,7 +15,6 @@ describe('Args to config', () => {
 
   describe('--no-start', () => {
     it('should set watcher start to false', () => {
-      // expect(subject('--no-start', 'file', 'exec').watchers).to.be(false);
       expect(subject('--no-start', 'file', 'exec').watchers[0].start)
         .to.equal(false);
     });
@@ -53,40 +52,40 @@ describe('Args to config', () => {
     });
   });
 
-  describe('--watch src/** --watch lib/** --exec eslint', () => {
+  describe('--watch=src/** --watch=lib/** --exec=eslint', () => {
     it('should be a single config', () => {
       expect(subject(
-        '--watch', 'lib/**',
-        '--watch', 'src/**',
-        '--exec', 'eslint').watchers).to.eql([
+        '--watch=lib/**',
+        '--watch=src/**',
+        '--exec=eslint').watchers).to.eql([
           { watch: ['lib/**', 'src/**'], exec: 'eslint', start: true },
         ]);
     });
   });
 
   describe(
-    '--watch src/** --watch lib/** --exec eslint --watch scss/** --exec scss',
+    '--watch=src/** --watch=lib/** --exec=eslint --watch=scss/** --exec=scss',
     () => {
       it('should be a two watcher config', () => {
         expect(subject(
-          '--watch', 'lib/**',
-          '--watch', 'src/**',
-          '--exec', 'eslint',
-          '--watch', 'scss/**',
-          '--exec', 'scss').watchers).to.eql([
+          '--watch=lib/**',
+          '--watch=src/**',
+          '--exec=eslint',
+          '--watch=scss/**',
+          '--exec=scss').watchers).to.eql([
             { watch: ['lib/**', 'src/**'], exec: 'eslint', start: true },
             { watch: ['scss/**'], exec: 'scss', start: true },
           ]);
       });
     });
 
-  describe('-w src/** -w lib/** --exec eslint --watch scss/** -x scss', () => {
+  describe('-w src/** -w lib/** --exec=eslint --watch=scss/** -x scss', () => {
     it('should be a two config', () => {
       expect(subject(
         '-w', 'lib/**',
         '-w', 'src/**',
-        '--exec', 'eslint',
-        '--watch', 'scss/**',
+        '--exec=eslint',
+        '--watch=scss/**',
         '-x', 'scss').watchers).to.eql([
           { watch: ['lib/**', 'src/**'], exec: 'eslint', start: true },
           { watch: ['scss/**'], exec: 'scss', start: true },

@@ -10,7 +10,7 @@ lib/**
 #
 package.json
 --no-start
--x $(npm\ bin)/sort-package-json
+--exec=$(npm\ bin)/sort-package-json
 #
 # run "npm run dev:exec" when any file in lib or spec folder change.
 #
