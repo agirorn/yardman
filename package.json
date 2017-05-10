@@ -17,7 +17,10 @@
     "tools",
     "watch"
   ],
-  "homepage": "https://github.com/agirorn/yardman",
+  "homepage": "https://github.com/agirorn/yardman#readme",
+  "bugs": {
+    "url": "https://github.com/agirorn/yardman/issues"
+  },
   "license": "ISC",
   "author": {
     "name": "Ægir Örn Símonarson",
@@ -31,6 +34,10 @@
   "main": "lib",
   "bin": {
     "yardman": "bin/yardman.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agirorn/yardman.git"
   },
   "scripts": {
     "dev": "./bin/yardman.js",
@@ -54,6 +61,6 @@
     "sort-package-json": "^1.6.0"
   },
   "engines": {
-    "node": ">=6.10.2"
+    "node": ">=6"
   }
 }
