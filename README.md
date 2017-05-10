@@ -3,7 +3,7 @@
 
 # yardman
 
-_The one that maintains the development yard._ Watching files and executing
+_The one that maintains the development yard._ Watching files and running
 commands.
 
 ## Usage
@@ -15,7 +15,8 @@ Watch files and run commands.
 
 Usage:
   yardman [options] [files ...] executable
-  yardman [[options] [files ...] -exec executable ...] [options] [files ...] executable
+  yardman [[options] [files ...] -exec executable ...] [options] [files ...]
+  executable
 
 Options:
   -h, --help              This help text
@@ -32,7 +33,8 @@ Example:
 
 ## Configuration
 
-Yardman can be configured by adding the command line arguments to the `.yardmanrc` file in the current working directory.
+Yardman can be configured by adding the command line arguments to the
+`.yardmanrc` file in the current working directory.
 
 __Example of a .yardmanrc__
 
