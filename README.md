@@ -37,11 +37,11 @@ Yardman can be configured by adding the command line arguments to the `.yardmanr
 __Example of a .yardmanrc__
 
 ```bash
-# Build this project when files in src change.
+# Build project when files in src directory change.
 src
 -x make
 
-# Run the tests when the build is done.
+# Run tests when the build is finished.
 build/result.exe
 ./test
 ```
