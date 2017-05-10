@@ -40,9 +40,12 @@
     "url": "https://github.com/agirorn/yardman.git"
   },
   "scripts": {
+    "precommit": "npm test",
     "dev": "./bin/yardman.js",
     "dev:exec": "clear && npm run test && npm run eslint",
     "eslint": "eslint bin lib spec",
+    "prepublishOnly": "npm test",
+    "prepush": "npm test",
     "test": "mocha --opts .mocharc"
   },
   "dependencies": {
@@ -57,6 +60,7 @@
     "eslint-plugin-import": "^2.2.0",
     "executable": "^4.1.0",
     "fs-extra": "^3.0.1",
+    "husky": "^0.13.3",
     "mocha": "^3.2.0",
     "sort-package-json": "^1.6.0"
   },
