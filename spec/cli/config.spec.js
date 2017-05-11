@@ -93,6 +93,22 @@ describe('Args to config', () => {
     });
   });
 
+  describe('--npm=eslint', () => {
+    it('should be a valid config', () => {
+      expect(subject('--npm=eslint').watchers).to.eql([
+        { watch: [], exec: 'npm run eslint --silent', start: true },
+      ]);
+    });
+  });
+
+  describe('-n eslint', () => {
+    it('should be a valid config', () => {
+      expect(subject('-n', 'eslint').watchers).to.eql([
+        { watch: [], exec: 'npm run eslint --silent', start: true },
+      ]);
+    });
+  });
+
   function defaults(...Arguments) {
     return [
       '/path-to-node/bin/node',

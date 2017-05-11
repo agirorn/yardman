@@ -22,8 +22,9 @@ Options:
   -h, --help              This help text
   -v, --version           Display version information
   -x, --exec=executable   Executable to run
+  -n, --npm=script        Executable an npm script with the --silent flag
   -X, --no-start          Do not run the executable on start
-  -w, --watch=files...    Comma separated list of files to monitor for change.
+  -w, --watch=files...    Comma separated list of files to monitor for change
 
 Example:
   yardman src make
