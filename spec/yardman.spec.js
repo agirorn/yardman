@@ -46,4 +46,46 @@ describe('yardman', () => {
         /command "touch new-file" completed successfully/);
     });
   });
+
+  describe('help screen', () => {
+    let stdout;
+    beforeEach(() => {
+      stdout = '';
+      Yardman({
+        help: true,
+        options: {
+          stdout: {
+            write: (string) => { stdout += string; },
+          },
+        },
+      });
+    });
+
+    beforeEach(done => setTimeout(done, 500));
+
+    it('should report that it executed the command', () => {
+      /* eslint-disable max-len */
+      expect(stdout).to.contain('yardman\n');
+
+      expect(stdout).to.contain('Watch files and run commands.\n');
+
+      expect(stdout).to.contain('Usage:\n');
+      expect(stdout).to.contain('  yardman [options] [files ...] executable\n');
+      expect(stdout).to.contain('  yardman [[options] [files ...] -exec executable ...] [options] [files ...] executable\n');
+
+      expect(stdout).to.contain('Options:\n');
+      expect(stdout).to.contain('  -h, --help              This help text\n');
+      expect(stdout).to.contain('  -v, --version           Display version information\n');
+      expect(stdout).to.contain('  -x, --exec=executable   Executable to run\n');
+      expect(stdout).to.contain('  -n, --npm=script        Executable an npm script with the --silent flag\n');
+      expect(stdout).to.contain('  -X, --no-start          Do not run the executable on start\n');
+      expect(stdout).to.contain('  -w, --watch=files...    Comma separated list of files to monitor for change\n');
+      expect(stdout).to.contain('  -f, --filename=files... Appends the path to the changed file to the command to execute\n');
+
+      expect(stdout).to.contain('Example:\n');
+      expect(stdout).to.contain('  yardman src make\n');
+      expect(stdout).to.contain('  yardman src -x make build/result.exe ./test\n');
+      /* eslint-enable max-len */
+    });
+  });
 });
