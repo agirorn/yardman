@@ -20,6 +20,13 @@ describe('Args to config', () => {
     });
   });
 
+  describe('-X', () => {
+    it('should set watcher start to false', () => {
+      expect(subject('-X', 'file', 'exec').watchers[0].start)
+        .to.equal(false);
+    });
+  });
+
   describe('src/** eslint', () => {
     it('should be a single watcher config', () => {
       expect(subject('src/**', 'eslint').watchers).to.eql([
