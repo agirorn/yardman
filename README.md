@@ -25,6 +25,7 @@ Options:
   -n, --npm=script        Executable an npm script with the --silent flag
   -X, --no-start          Do not run the executable on start
   -w, --watch=files...    Comma separated list of files to monitor for change
+  -f, --filename=files... Appends the path to the changed file to the command to execute
 
 Example:
   yardman src make
