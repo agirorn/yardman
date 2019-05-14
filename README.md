@@ -25,8 +25,7 @@ Watch files and run commands.
 
 Usage:
   yardman [options] [files ...] executable
-  yardman [[options] [files ...] -exec executable ...] [options] [files ...]
-  executable
+  yardman [[options] [files ...] -exec executable ...] [options] [files ...] executable
 
 Options:
   -h, --help               This help text
@@ -35,12 +34,16 @@ Options:
   -n, --npm=script         Executable an npm script with the --silent flag
   -X, --no-start           Do not run the executable on start
   -w, --watch=files...     Comma separated list of files to monitor for change
-  -f, --filename=files...  Appends the path to the changed file to the command to execute
   -S, --kill-signal=signal Set the kill signal (SIGTERM, SIGKILL), defaults to SIGTERM
+
+Variables:
+  file: The name of the file that just got updated is injected into the
+  executable command with the template {{file}}
 
 Example:
   yardman src make
   yardman src -x make build/result.exe ./test
+  yardman src -x 'file {{file}}'
 ```
 
 ## Configuration

@@ -83,6 +83,10 @@ describe('yardman', () => {
       expect(stdout).to.contain('  -f, --filename=files...  Appends the path to the changed file to the command to execute\n');
       expect(stdout).to.contain('  -S, --kill-signal=signal Set the kill signal (SIGTERM, SIGKILL), defaults to SIGTERM\n');
 
+      expect(stdout).to.contain('Variables:');
+      expect(stdout).to.contain('  file: The name of the file that just got updated is injected into the');
+      expect(stdout).to.contain('  executable command with the template {{file}}');
+
       expect(stdout).to.contain('Example:\n');
       expect(stdout).to.contain('  yardman src make\n');
       expect(stdout).to.contain('  yardman src -x make build/result.exe ./test\n');

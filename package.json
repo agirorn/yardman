@@ -11,7 +11,6 @@
     "monitor",
     "reload",
     "restart",
-    "restart",
     "start",
     "terminal",
     "tools",
@@ -20,6 +19,10 @@
   "homepage": "https://github.com/agirorn/yardman#readme",
   "bugs": {
     "url": "https://github.com/agirorn/yardman/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agirorn/yardman.git"
   },
   "license": "ISC",
   "author": {
@@ -35,15 +38,11 @@
   "bin": {
     "yardman": "bin/yardman.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agirorn/yardman.git"
-  },
   "scripts": {
-    "precommit": "npm test",
     "dev": "./bin/yardman.js",
     "dev:exec": "clear && rm -Rf coverage .nyc && npm run test && npm run eslint",
     "eslint": "eslint bin lib spec",
+    "precommit": "npm test",
     "prepublishOnly": "npm test",
     "prepush": "npm test",
     "test": "nyc mocha --opts .mocharc"
@@ -68,6 +67,6 @@
     "sort-package-json": "^1.6.0"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   }
 }
