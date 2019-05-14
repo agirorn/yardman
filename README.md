@@ -6,6 +6,16 @@
 _The one that maintains the development yard._ Watching files and running
 commands.
 
+## Installation
+
+```shel
+# Using Yarn
+yarn add yardman
+
+# Using npm
+npm install yardman
+```
+
 ## Usage
 
 ```shel
@@ -32,7 +42,6 @@ Example:
   yardman src make
   yardman src -x make build/result.exe ./test
 ```
-
 
 ## Configuration
 
