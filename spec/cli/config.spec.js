@@ -81,9 +81,10 @@ describe('Args to config', () => {
       expect(subject(
         '--watch=lib/**',
         '--watch=src/**',
-        '--exec=eslint').watchers).to.eql([
-          watcher({ watch: ['lib/**', 'src/**'], exec: 'eslint', start: true }),
-        ]);
+        '--exec=eslint',
+      ).watchers).to.eql([
+        watcher({ watch: ['lib/**', 'src/**'], exec: 'eslint', start: true }),
+      ]);
     });
   });
 
@@ -96,20 +97,22 @@ describe('Args to config', () => {
           '--watch=src/**',
           '--exec=eslint',
           '--watch=scss/**',
-          '--exec=scss').watchers).to.eql([
-            watcher({
-              watch: ['lib/**', 'src/**'],
-              exec: 'eslint',
-              start: true,
-            }),
-            watcher({
-              watch: ['scss/**'],
-              exec: 'scss',
-              start: true,
-            }),
-          ]);
+          '--exec=scss',
+        ).watchers).to.eql([
+          watcher({
+            watch: ['lib/**', 'src/**'],
+            exec: 'eslint',
+            start: true,
+          }),
+          watcher({
+            watch: ['scss/**'],
+            exec: 'scss',
+            start: true,
+          }),
+        ]);
       });
-    });
+    },
+  );
 
   describe('-w src/** -w lib/** --exec=eslint --watch=scss/** -x scss', () => {
     it('should be a two config', () => {
@@ -118,10 +121,11 @@ describe('Args to config', () => {
         '-w', 'src/**',
         '--exec=eslint',
         '--watch=scss/**',
-        '-x', 'scss').watchers).to.eql([
-          watcher({ watch: ['lib/**', 'src/**'], exec: 'eslint', start: true }),
-          watcher({ watch: ['scss/**'], exec: 'scss', start: true }),
-        ]);
+        '-x', 'scss',
+      ).watchers).to.eql([
+        watcher({ watch: ['lib/**', 'src/**'], exec: 'eslint', start: true }),
+        watcher({ watch: ['scss/**'], exec: 'scss', start: true }),
+      ]);
     });
   });
 

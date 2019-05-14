@@ -1,10 +1,10 @@
-const existsSync = require('fs').existsSync;
-const Yardman = require('../lib/yardman');
+const { existsSync } = require('fs');
 const fs = require('fs-extra');
-const exec = require('child_process').exec;
+const { exec } = require('child_process');
+const Yardman = require('../lib/yardman');
 
-const ensureDirSync = fs.ensureDirSync;
-const removeSync = fs.removeSync;
+const { ensureDirSync } = fs;
+const { removeSync } = fs;
 
 describe('yardman', () => {
   before(() => {
@@ -43,7 +43,8 @@ describe('yardman', () => {
 
     it('should report that it executed the command', () => {
       expect(stdout).to.match(
-        /command "touch new-file" completed successfully/);
+        /command "touch new-file" completed successfully/,
+      );
     });
   });
 

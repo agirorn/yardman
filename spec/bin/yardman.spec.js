@@ -1,6 +1,6 @@
 const fs = require('fs');
-const pkg = require('../../package.json');
 const executable = require('executable');
+const pkg = require('../../package.json');
 
 describe('Yardman executable', () => {
   it('should be the correct file name', () => {
@@ -20,14 +20,16 @@ chai.Assertion.addMethod('existOnFileSystem', function exists() {
   this.assert(
     fs.existsSync(path(this)),
     'expected #{this} to exists',
-    'expected #{this} not to exists');
+    'expected #{this} not to exists',
+  );
 });
 
 chai.Assertion.addMethod('beAnExecutable', function exists() {
   this.assert(
     executable.sync(path(this)),
     'expected #{this} to exists',
-    'expected #{this} not to exists');
+    'expected #{this} not to exists',
+  );
 });
 
 function path(object) {

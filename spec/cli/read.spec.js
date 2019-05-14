@@ -1,8 +1,9 @@
-const read = require('../../lib/cli/read');
 const { resolve: resolvePath } = require('path');
+const read = require('../../lib/cli/read');
 
-const subject = filename =>
-  read(resolvePath(__dirname, '../fixtures', filename));
+const subject = filename => read(resolvePath(
+  __dirname, '../fixtures', filename,
+));
 
 describe('Reading rc file', () => {
   describe('that exists', () => {

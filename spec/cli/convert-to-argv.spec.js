@@ -30,6 +30,6 @@ describe('rcfile to args', () => {
 
   it('should allow multiple spaces in single quotes', () => {
     expect(subject('\'1 2\' \'3  4\'')).to
-        .eql(['1 2', '3  4']);
+      .eql(['1 2', '3  4']);
   });
 });
