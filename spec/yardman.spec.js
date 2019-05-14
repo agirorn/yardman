@@ -74,13 +74,14 @@ describe('yardman', () => {
       expect(stdout).to.contain('  yardman [[options] [files ...] -exec executable ...] [options] [files ...] executable\n');
 
       expect(stdout).to.contain('Options:\n');
-      expect(stdout).to.contain('  -h, --help              This help text\n');
-      expect(stdout).to.contain('  -v, --version           Display version information\n');
-      expect(stdout).to.contain('  -x, --exec=executable   Executable to run\n');
-      expect(stdout).to.contain('  -n, --npm=script        Executable an npm script with the --silent flag\n');
-      expect(stdout).to.contain('  -X, --no-start          Do not run the executable on start\n');
-      expect(stdout).to.contain('  -w, --watch=files...    Comma separated list of files to monitor for change\n');
-      expect(stdout).to.contain('  -f, --filename=files... Appends the path to the changed file to the command to execute\n');
+      expect(stdout).to.contain('  -h, --help               This help text\n');
+      expect(stdout).to.contain('  -v, --version            Display version information\n');
+      expect(stdout).to.contain('  -x, --exec=executable    Executable to run\n');
+      expect(stdout).to.contain('  -n, --npm=script         Executable an npm script with the --silent flag\n');
+      expect(stdout).to.contain('  -X, --no-start           Do not run the executable on start\n');
+      expect(stdout).to.contain('  -w, --watch=files...     Comma separated list of files to monitor for change\n');
+      expect(stdout).to.contain('  -f, --filename=files...  Appends the path to the changed file to the command to execute\n');
+      expect(stdout).to.contain('  -S, --kill-signal=signal Set the kill signal (SIGTERM, SIGKILL), defaults to SIGTERM\n');
 
       expect(stdout).to.contain('Example:\n');
       expect(stdout).to.contain('  yardman src make\n');

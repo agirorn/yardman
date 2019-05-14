@@ -19,13 +19,14 @@ Usage:
   executable
 
 Options:
-  -h, --help              This help text
-  -v, --version           Display version information
-  -x, --exec=executable   Executable to run
-  -n, --npm=script        Executable an npm script with the --silent flag
-  -X, --no-start          Do not run the executable on start
-  -w, --watch=files...    Comma separated list of files to monitor for change
-  -f, --filename=files... Appends the path to the changed file to the command to execute
+  -h, --help               This help text
+  -v, --version            Display version information
+  -x, --exec=executable    Executable to run
+  -n, --npm=script         Executable an npm script with the --silent flag
+  -X, --no-start           Do not run the executable on start
+  -w, --watch=files...     Comma separated list of files to monitor for change
+  -f, --filename=files...  Appends the path to the changed file to the command to execute
+  -S, --kill-signal=signal Set the kill signal (SIGTERM, SIGKILL), defaults to SIGTERM
 
 Example:
   yardman src make

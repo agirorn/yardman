@@ -30,7 +30,7 @@ describe('Args to config', () => {
   describe('src/** eslint', () => {
     it('should be a single watcher config', () => {
       expect(subject('src/**', 'eslint').watchers).to.eql([
-        { watch: ['src/**'], exec: 'eslint', start: true },
+        watcher({ watch: ['src/**'], exec: 'eslint' }),
       ]);
     });
   });
@@ -38,7 +38,7 @@ describe('Args to config', () => {
   describe('src/** lib/** eslint', () => {
     it('should be a single watcher config', () => {
       expect(subject('lib/**', 'src/**', 'eslint').watchers).to.eql([
-        { watch: ['lib/**', 'src/**'], exec: 'eslint', start: true },
+        watcher({ watch: ['lib/**', 'src/**'], exec: 'eslint' }),
       ]);
     });
   });
@@ -46,7 +46,7 @@ describe('Args to config', () => {
   describe('src/** --filename eslint', () => {
     it('should turn on filename inclutions on watcher', () => {
       expect(subject('src/**', '--filename', 'eslint').watchers).to.eql([
-        { watch: ['src/**'], exec: 'eslint', start: true, filename: true },
+        watcher({ watch: ['src/**'], exec: 'eslint', filename: true }),
       ]);
     });
   });
@@ -54,8 +54,25 @@ describe('Args to config', () => {
   describe('src/** -f eslint', () => {
     it('should turn on filename inclutions on watcher', () => {
       expect(subject('src/**', '-f', 'eslint').watchers).to.eql([
-        { watch: ['src/**'], exec: 'eslint', start: true, filename: true },
+        watcher({ watch: ['src/**'], exec: 'eslint', filename: true }),
       ]);
+    });
+  });
+
+  describe('set kill signal', () => {
+    const expected = [
+      watcher({ watch: ['src/**'], killSignal: 'SIGKILL', exec: 'eslint' }),
+    ];
+    it('should set a kill signal', () => {
+      expect(subject(
+        'src/**', '--kill-signal=SIGKILL', 'eslint',
+      ).watchers).to.eql(expected);
+    });
+
+    it('should set a kill signal', () => {
+      expect(subject(
+        'src/**', '-S', 'SIGKILL', 'eslint',
+      ).watchers).to.eql(expected);
     });
   });
 
@@ -65,7 +82,7 @@ describe('Args to config', () => {
         '--watch=lib/**',
         '--watch=src/**',
         '--exec=eslint').watchers).to.eql([
-          { watch: ['lib/**', 'src/**'], exec: 'eslint', start: true },
+          watcher({ watch: ['lib/**', 'src/**'], exec: 'eslint', start: true }),
         ]);
     });
   });
@@ -80,8 +97,16 @@ describe('Args to config', () => {
           '--exec=eslint',
           '--watch=scss/**',
           '--exec=scss').watchers).to.eql([
-            { watch: ['lib/**', 'src/**'], exec: 'eslint', start: true },
-            { watch: ['scss/**'], exec: 'scss', start: true },
+            watcher({
+              watch: ['lib/**', 'src/**'],
+              exec: 'eslint',
+              start: true,
+            }),
+            watcher({
+              watch: ['scss/**'],
+              exec: 'scss',
+              start: true,
+            }),
           ]);
       });
     });
@@ -94,8 +119,8 @@ describe('Args to config', () => {
         '--exec=eslint',
         '--watch=scss/**',
         '-x', 'scss').watchers).to.eql([
-          { watch: ['lib/**', 'src/**'], exec: 'eslint', start: true },
-          { watch: ['scss/**'], exec: 'scss', start: true },
+          watcher({ watch: ['lib/**', 'src/**'], exec: 'eslint', start: true }),
+          watcher({ watch: ['scss/**'], exec: 'scss', start: true }),
         ]);
     });
   });
@@ -103,7 +128,7 @@ describe('Args to config', () => {
   describe('--npm=eslint', () => {
     it('should be a valid config', () => {
       expect(subject('--npm=eslint').watchers).to.eql([
-        { watch: [], exec: 'npm run eslint --silent', start: true },
+        watcher({ watch: [], exec: 'npm run eslint --silent', start: true }),
       ]);
     });
   });
@@ -111,7 +136,7 @@ describe('Args to config', () => {
   describe('-n eslint', () => {
     it('should be a valid config', () => {
       expect(subject('-n', 'eslint').watchers).to.eql([
-        { watch: [], exec: 'npm run eslint --silent', start: true },
+        watcher({ watch: [], exec: 'npm run eslint --silent', start: true }),
       ]);
     });
   });
@@ -121,5 +146,13 @@ describe('Args to config', () => {
       '/path-to-node/bin/node',
       '/path-to-yardman/bin/yardman.js',
     ].concat(...Arguments);
+  }
+
+  function watcher(object) {
+    return {
+      killSignal: 'SIGTERM',
+      start: true,
+      ...object,
+    };
   }
 });
