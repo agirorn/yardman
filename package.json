@@ -43,14 +43,14 @@
     "dev": "./bin/yardman.js",
     "dev:exec": "clear && rm -Rf coverage .nyc && npm run test && npm run lint",
     "lint": "eslint bin lib spec",
-    "precommit": "npm test",
-    "prepublishOnly": "npm test",
-    "prepush": "npm test",
+    "precommit": "yarn ci",
+    "prepublishOnly": "yarn ci",
+    "prepush": "yarn ci",
     "test": "nyc mocha --opts .mocharc"
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "chokidar": "^1.6.1",
+    "chokidar": "^2.1.6",
     "debug": "^4.1.1",
     "lodash.template": "^4.4.0",
     "lodash.templatesettings": "^4.1.0",
