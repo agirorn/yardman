@@ -54,7 +54,7 @@
     "debug": "^4.1.1",
     "lodash.template": "^4.4.0",
     "lodash.templatesettings": "^4.1.0",
-    "tree-kill": "^1.2.1"
+    "pstree.remy": "^1.1.7"
   },
   "devDependencies": {
     "chai": "^4.2.0",
