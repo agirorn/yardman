@@ -35,6 +35,9 @@ Options:
   -X, --no-start           Do not run the executable on start
   -w, --watch=files...     Comma separated list of files to monitor for change
   -S, --kill-signal=signal Set the kill signal (SIGTERM, SIGKILL), defaults to SIGTERM
+  -d, --debounce=ms        Set the number of milliseconds to wait for before
+                           executing the command after a file change. Useful
+                           when switching branches while watching files.
 
 Variables:
   file: The name of the file that just got updated is injected into the
