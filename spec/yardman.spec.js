@@ -29,8 +29,8 @@ describe('yardman', () => {
       });
     });
 
-    beforeEach(done => setTimeout(() => exec('touch file', done), 200));
-    beforeEach(done => setTimeout(done, 500));
+    beforeEach((done) => setTimeout(() => exec('touch file', done), 200));
+    beforeEach((done) => setTimeout(done, 500));
     afterEach(() => {
       yardman.close();
       removeSync('file');
@@ -62,7 +62,7 @@ describe('yardman', () => {
       });
     });
 
-    beforeEach(done => setTimeout(done, 500));
+    beforeEach((done) => setTimeout(done, 500));
 
     it('should report that it executed the command', () => {
       /* eslint-disable max-len */

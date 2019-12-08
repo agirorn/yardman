@@ -49,7 +49,7 @@
     "test": "nyc mocha --opts .mocharc"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "chokidar": "^2.1.6",
     "debug": "^4.1.1",
     "lodash.debounce": "^4.0.8",
@@ -59,12 +59,12 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.2.0",
     "executable": "^4.1.0",
     "fs-extra": "^8.0.1",
-    "husky": "^2.3.0",
+    "husky": "^3.1.0",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "sort-package-json": "^1.6.0"

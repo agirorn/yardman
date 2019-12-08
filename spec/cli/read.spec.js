@@ -1,7 +1,7 @@
 const { resolve: resolvePath } = require('path');
 const read = require('../../lib/cli/read');
 
-const subject = filename => read(resolvePath(
+const subject = (filename) => read(resolvePath(
   __dirname, '../fixtures', filename,
 ));
 
