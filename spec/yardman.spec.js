@@ -19,7 +19,7 @@ describe('yardman', () => {
       stdout = '';
       yardman = Yardman({
         watchers: [
-          { watch: ['file'], exec: 'touch new-file', start: false },
+          { watch: ['./'], exec: 'touch new-file', start: false },
         ],
         options: {
           stdout: {
@@ -31,8 +31,8 @@ describe('yardman', () => {
 
     beforeEach((done) => setTimeout(() => exec('touch file', done), 200));
     beforeEach((done) => setTimeout(done, 500));
-    afterEach(() => {
-      yardman.close();
+    afterEach(async () => {
+      await yardman.close();
       removeSync('file');
       removeSync('new-file');
     });
