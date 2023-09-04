@@ -1,16 +1,18 @@
-#
-# Watch the lib folder and exec eslint only when files change.
-#
-lib/**
---filename
---no-start
--x "yarn eslint"
-#
-# Watch package.json and sort it when it is changed.
-#
-package.json
---no-start
---exec=$(npm\ bin)/sort-package-json
+# #
+# # Watch the lib folder and exec eslint only when files change.
+# #
+# lib/**
+# --filename
+# --no-start
+# -x "yarn lint"
+
+# #
+# # Watch package.json and sort it when it is changed.
+# #
+# package.json
+# --no-start
+# --exec=$(npm\ bin)/sort-package-json
+
 #
 # run "npm run dev:exec" when any file in lib or spec folder change.
 #
