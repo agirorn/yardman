@@ -1,6 +1,6 @@
 {
   "name": "yardman",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "The one that maintains the development yard",
   "keywords": [
     "autoload",
@@ -39,9 +39,11 @@
     "yardman": "bin/yardman.js"
   },
   "scripts": {
-    "ci": "yarn lint && yarn test",
+    "ci": "yarn lint && yarn coverage",
     "dev": "./bin/yardman.js",
-    "dev:exec": "clear && rm -Rf coverage .nyc && npm run test && npm run lint",
+    "dev:exec": "clear && yarn coverage && npm run lint",
+    "coverage": "yarn coverage:clean && yarn test",
+    "coverage:clean": "rm -Rf coverage .test .nyc_output",
     "lint": "eslint bin lib spec",
     "precommit": "yarn ci",
     "prepublishOnly": "yarn ci",
