@@ -6,6 +6,8 @@
 _The one that maintains the development yard._ Watching files and running
 commands.
 
+<img src="./assets/yardman-cover.png" alt="yardman" style="max-width:600px;"/>
+
 ## Installation
 
 ```shel
