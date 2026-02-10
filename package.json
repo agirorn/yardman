@@ -56,7 +56,7 @@
     "debug": "^4.1.1",
     "lodash.debounce": "^4.0.8",
     "lodash.template": "^4.4.0",
-    "lodash.templatesettings": "^4.1.0",
+    "lodash.templatesettings": "^4.2.0",
     "pidtree": "^0.6.0"
   },
   "devDependencies": {
